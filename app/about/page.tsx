@@ -6,13 +6,14 @@ export default function About() {
   const clients: string[] = [];
 
   return (
-    <div className="bg-black text-white px-6 md:px-20 py-16 relative">
-      <div className="absolute inset-0 -z-10 opacity-10">
+    <div className="bg-black/1000 text-white px-6 md:px-20 py-16 relative">
+      <div className="absolute inset-0 -z-10">
         <Image
           src="/Home.svg"
           alt="background"
           layout="fill"
           objectFit="cover"
+          className="opacity-100"
         />
       </div>
 
@@ -29,16 +30,24 @@ export default function About() {
       </p>
       <p className="mb-6">
         Agar sizga men yaratgan loyihalarim qiziq bo‘lsa{" "}
-        <Link href={"/projects"} className="text-blue-500 underline cursor-pointer" >
+        <Link
+          href={"/projects"}
+          className="text-blue-500 underline cursor-pointer"
+        >
           Loyihalar
         </Link>{" "}
         sahifasiga tashrif buyurishingiz mumkin :)
       </p>
-      <Link href={"/contact"} className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-md text-white font-semibold transition ">
+      <Link
+        href={"/contact"}
+        className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-md text-white font-semibold transition "
+      >
         Bog‘lanish
       </Link>
 
-      <h2 className="text-2xl font-bold mb-4 text-blue-500 mt-6">Asbob-uskunalar</h2>
+      <h2 className="text-2xl font-bold mb-4 text-blue-500 mt-6">
+        Asbob-uskunalar
+      </h2>
       <div className="grid grid-cols-3 md:grid-cols-5 gap-6 mb-16">
         {tools.length > 0 ? (
           tools.map((tool, idx) => (
