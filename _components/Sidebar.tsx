@@ -32,7 +32,7 @@ const App: React.FC = () => {
             Web333
           </span>
           <span className="bg-gray-700 px-3 py-1 text-sm rounded-lg">
-            ChatGPT
+            Manager
           </span>
         </div>
 

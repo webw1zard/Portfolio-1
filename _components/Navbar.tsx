@@ -32,7 +32,7 @@ const Navbar = () => {
               <li key={index}>
                 <Link
                   href={item.path}
-                  className="cursor-pointer border-b-2 border-transparent hover:border-emerald-600 hover:text-white transition-all duration-300"
+                  className="cursor-pointer border-b-2 border-transparent hover:border-blue-600 hover:text-white transition-all duration-300"
                 >
                   {item.name}
                 </Link>
@@ -42,7 +42,7 @@ const Navbar = () => {
 
           <Link
             href="https://github.com/"
-            target="_blank" 
+            target="_blank"
             rel="noopener noreferrer"
             className="text-white text-2xl hover:text-gray-400 transition-all duration-300"
           >
