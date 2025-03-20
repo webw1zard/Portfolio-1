@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { useRef, FormEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -36,74 +36,71 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="bg-[url('/Home.svg')] w-full h-full bg-center p-8">
-      <h2 className="text-2xl font-bold mb-2 text-white">Bog'lanish</h2>
-      <div className="w-34 border-b-4 border-blue-600 mb-6"></div>
+    <section className="bg-[url('/Home.svg')] w-full min-h-screen bg-center py-16 px-4 md:px-16">
+      <h2 className="text-3xl font-bold mb-2 text-white text-center md:text-left">Bog'lanish</h2>
+      <div className="w-24 border-b-4 border-blue-600 mb-10 mx-auto md:mx-0"></div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-        <div className="bg-[#0e0e0e] p-16 rounded-lg text-center">
-          <Image
-            src="/gmail.svg"
-            alt="gmail"
-            width={40}
-            height={40}
-            className="mx-auto mb-2"
-          />
-          <h4 className="font-semibold text-white">E-pochta</h4>
-          <p className="text-gray-400">ulugbeknizomov999@gmail.com</p>
-        </div>
-
-        <div className="bg-[#0e0e0e] p-16 rounded-lg text-center">
-          <Image
-            src="/telegram.svg"
-            alt="telegram"
-            width={40}
-            height={40}
-            className="mx-auto mb-2"
-          />
-          <h4 className="font-semibold text-white">Telegram</h4>
-          <Link href={"https://t.me/nizomov_official"} className="text-gray-400 text-decoration-underline color-white">t.me/nizomov_official</Link>
-        </div>
-
-        <div className="bg-[#0e0e0e] p-16 rounded-lg text-center">
-          <Image
-            src="/phone.svg"
-            alt="phone"
-            width={40}
-            height={40}
-            className="mx-auto mb-2"
-          />
-          <h4 className="font-semibold text-white">Telefon raqam</h4>
-          <p className="text-gray-400">+998 (91) 911-91-91</p>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {[
+          {
+            icon: "/gmail.svg",
+            title: "E-pochta",
+            content: "ulugbeknizomov999@gmail.com",
+          },
+          {
+            icon: "/telegram.svg",
+            title: "Telegram",
+            content: <Link href="https://t.me/nizomov_official" className="hover:text-blue-400 underline">t.me/nizomov_official</Link>,
+          },
+          {
+            icon: "/phone.svg",
+            title: "Telefon raqam",
+            content: "+998 (91) 911-91-91",
+          },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="bg-gradient-to-br from-[#111] to-[#0e0e0e] p-10 rounded-2xl text-center shadow-xl hover:scale-105 transition-transform duration-300"
+          >
+            <Image
+              src={item.icon}
+              alt={item.title}
+              width={40}
+              height={40}
+              className="mx-auto mb-4"
+            />
+            <h4 className="font-semibold text-white text-lg mb-1">{item.title}</h4>
+            <p className="text-gray-400">{item.content}</p>
+          </div>
+        ))}
       </div>
 
-      <h2 className="text-2xl font-bold mb-2 text-white">So‘rov yuborish</h2>
-      <div className="w-34 border-b-4 border-blue-600 mb-6"></div>
+      <h2 className="text-3xl font-bold mb-2 text-white text-center md:text-left">So‘rov yuborish</h2>
+      <div className="w-24 border-b-4 border-blue-600 mb-8 mx-auto md:mx-0"></div>
 
       <form
         ref={form}
         onSubmit={sendEmail}
-        className="bg-[#0e0e0e] p-4 rounded-lg space-y-4"
+        className="bg-gradient-to-br from-[#111] to-[#0e0e0e] p-8 rounded-2xl space-y-6 shadow-2xl"
       >
         <div className="flex flex-col md:flex-row gap-4">
           <input
             type="text"
             name="user_name"
-            placeholder="Falonchiyev Falonchi"
-            className="flex-1 bg-transparent border px-3 py-2 rounded text-white placeholder-gray-400"
+            placeholder="Ismingiz"
+            className="flex-1 bg-transparent border border-gray-600 px-4 py-3 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
             required
           />
           <input
             type="email"
             name="user_email"
-            placeholder="misol@gmail.com"
-            className="flex-1 bg-transparent border px-3 py-2 rounded text-white placeholder-gray-400"
+            placeholder="Email manzil"
+            className="flex-1 bg-transparent border border-gray-600 px-4 py-3 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
             required
           />
           <select
             name="contact_method"
-            className="bg-transparent border px-3 py-2 rounded text-white"
+            className="bg-transparent border border-gray-600 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
           >
             <option className="bg-black">E-pochta</option>
             <option className="bg-black">Telefon</option>
@@ -112,18 +109,20 @@ const ContactSection = () => {
         </div>
         <textarea
           name="message"
-          placeholder="O'z izohingizni yozing..."
-          className="w-full bg-transparent border px-3 py-2 rounded text-white placeholder-gray-400 h-32"
+          placeholder="Xabaringizni yozing..."
+          className="w-full bg-transparent border border-gray-600 px-4 py-3 rounded-lg text-white placeholder-gray-400 h-32 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
           required
         ></textarea>
         <button
           type="submit"
-          className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg"
           disabled={isSending}
         >
           {isSending ? "Yuborilmoqda..." : "Yuborish"}
         </button>
-        {message && <p className="text-green-400 mt-2">{message}</p>}
+        {message && (
+          <p className="text-green-400 mt-4 text-center">{message}</p>
+        )}
       </form>
     </section>
   );

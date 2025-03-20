@@ -15,7 +15,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="flex h-screen bg-black text-white">
+    <div className="flex h-[613px] bg-black text-white">
       <div
         className={`${
           isOpen ? "w-80" : "w-16"
@@ -58,7 +58,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 ].map((tag, i) => (
                   <span
                     key={i}
-                    className="bg-gradient-to-r from-blue-500 to-purple-500 px-3 py-1 text-xs rounded-full shadow hover:scale-105 transition-transform duration-300"
+                    className="bg-gradient-to-r from-blue-500 to-purple-500 px-3 py-1 text-xs rounded-full shadow hover:scale-105 cursor-pointer transition-transform duration-300"
                   >
                     {tag}
                   </span>

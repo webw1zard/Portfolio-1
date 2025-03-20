@@ -32,8 +32,8 @@ export default function RootLayout({
         <div className="w-full">
           <Navbar />
           <div className="flex">
-            <SideBar />
-            <div className="w-full">{children}</div>
+            <SideBar children />
+            <div className="w-full h-[613px] overflow-y-auto">{children}</div>
           </div>
         </div>
       </body>
